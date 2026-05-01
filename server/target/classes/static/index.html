@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#1e1b17"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<title>Math Engine</title>
+<link rel="stylesheet" href="mobile.css">
+</head>
+<body data-theme="dark" data-font-size="normal">
+
+<!-- Skip link for screen readers -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ── HEADER ──────────────────────────────────────────────── -->
+<header class="app-header" role="banner">
+  <div class="logo">
+    <span class="logo-mark" aria-hidden="true">&#x222B;</span>
+    <span class="logo-name">Math<span class="logo-accent">Engine</span></span>
+  </div>
+
+  <div class="header-actions">
+    <!-- Theme toggle -->
+    <button class="icon-btn" id="btn-theme"
+            onclick="cycleTheme()"
+            aria-label="Toggle color theme"
+            title="Toggle theme">&#9680;</button>
+
+    <!-- Font size -->
+    <button class="icon-btn" id="btn-font"
+            onclick="cycleFontSize()"
+            aria-label="Change text size"
+            title="Change text size">A</button>
+
+    <!-- Auth button -->
+    <button class="icon-btn auth-btn" id="btn-auth"
+            onclick="toggleAuthPanel()"
+            aria-label="Sign in or create account">&#128100;</button>
+  </div>
+</header>
+
+<!-- ── AUTH PANEL (slides down) ────────────────────────────── -->
+<div class="auth-panel" id="auth-panel" role="dialog"
+     aria-label="Sign in or register" aria-hidden="true">
+
+  <div class="auth-tabs" role="tablist">
+    <button class="auth-tab active" id="tab-login"
+            role="tab" aria-selected="true"
+            onclick="setAuthTab('login')">Sign In</button>
+    <button class="auth-tab" id="tab-register"
+            role="tab" aria-selected="false"
+            onclick="setAuthTab('register')">Register</button>
+  </div>
+
+  <!-- Login form -->
+  <div class="auth-form" id="form-login">
+    <label class="field-label" for="login-user">Username</label>
+    <input class="field-input" id="login-user" type="text"
+           autocomplete="username" placeholder="your username"/>
+
+    <label class="field-label" for="login-pass">Password</label>
+    <input class="field-input" id="login-pass" type="password"
+           autocomplete="current-password" placeholder="password"/>
+
+    <div class="auth-error" id="login-error" role="alert" aria-live="polite"></div>
+    <button class="btn-primary" onclick="doLogin()">Sign In</button>
+  </div>
+
+  <!-- Register form -->
+  <div class="auth-form hidden" id="form-register">
+    <label class="field-label" for="reg-user">Username</label>
+    <input class="field-input" id="reg-user" type="text"
+           autocomplete="username" placeholder="choose a username"/>
+
+    <label class="field-label" for="reg-email">Email</label>
+    <input class="field-input" id="reg-email" type="email"
+           autocomplete="email" placeholder="you@example.com"/>
+
+    <label class="field-label" for="reg-pass">Password</label>
+    <input class="field-input" id="reg-pass" type="password"
+           autocomplete="new-password" placeholder="8+ characters"/>
+
+    <div class="auth-error" id="register-error" role="alert" aria-live="polite"></div>
+    <button class="btn-primary" onclick="doRegister()">Create Account</button>
+  </div>
+
+  <!-- Logged-in state -->
+  <div class="auth-form hidden" id="form-loggedin">
+    <p class="auth-welcome">Signed in as <strong id="auth-username"></strong></p>
+    <button class="btn-secondary" onclick="doLogout()">Sign Out</button>
+  </div>
+</div>
+
+<!-- ── MAIN ─────────────────────────────────────────────────── -->
+<main id="main" role="main">
+
+  <!-- Operation selector -->
+  <nav class="op-selector" role="tablist" aria-label="Operation type">
+    <button class="op-tab active" data-op="arithmetic"
+            role="tab" aria-selected="true"
+            onclick="setOp(this, 'arithmetic')">&#177; Arith</button>
+    <button class="op-tab" data-op="integral"
+            role="tab" aria-selected="false"
+            onclick="setOp(this, 'integral')">&#x222B; Integral</button>
+    <button class="op-tab" data-op="derivative"
+            role="tab" aria-selected="false"
+            onclick="setOp(this, 'derivative')">d/dx Deriv</button>
+    <button class="op-tab" data-op="limit"
+            role="tab" aria-selected="false"
+            onclick="setOp(this, 'limit')">lim Limit</button>
+    <button class="op-tab" data-op="matrix"
+            role="tab" aria-selected="false"
+            onclick="setOp(this, 'matrix')">[] Matrix</button>
+  </nav>
+
+  <!-- Input card -->
+  <section class="input-card" aria-label="Expression input">
+
+    <div class="input-row">
+      <span class="sigil" aria-hidden="true">$</span>
+      <textarea id="expr-input" class="expr-input"
+                rows="2"
+                placeholder="Enter LaTeX or plain expression..."
+                aria-label="Math expression. Press Enter to solve."
+                spellcheck="false"
+                autocorrect="off"
+                autocapitalize="none"></textarea>
+      <span class="sigil" aria-hidden="true">$</span>
+    </div>
+
+    <div class="precision-row">
+      <span class="precision-label">Output:</span>
+      <div class="toggle-group" role="group" aria-label="Output mode">
+        <button class="toggle-btn active" id="pill-sym"
+                onclick="setMode('symbolic')"
+                aria-pressed="true">Symbolic</button>
+        <button class="toggle-btn" id="pill-num"
+                onclick="setMode('numerical')"
+                aria-pressed="false">Numerical</button>
+      </div>
+    </div>
+
+    <div class="action-row">
+      <button class="btn-secondary" onclick="clearAll()">Clear</button>
+      <button class="btn-primary solve-btn" id="btn-solve"
+              onclick="solve()"
+              aria-label="Solve expression (Enter)">Solve &#9654;</button>
+    </div>
+  </section>
+
+  <!-- Result card -->
+  <section class="result-card" id="result-card"
+           aria-live="polite" aria-label="Result">
+
+    <div class="result-empty" id="result-empty">
+      <span class="result-empty-icon" aria-hidden="true">&#9676;</span>
+      <span>Result will appear here</span>
+    </div>
+
+    <div class="result-content hidden" id="result-content">
+      <div class="result-header">
+        <span class="result-label">Result</span>
+        <div class="export-btns" role="group" aria-label="Export result">
+          <button class="export-btn" onclick="exportResult('latex')"
+                  title="Copy as LaTeX">LaTeX</button>
+          <button class="export-btn" onclick="exportResult('unicode')"
+                  title="Copy as Unicode">Unicode</button>
+          <button class="export-btn" onclick="exportResult('plaintext')"
+                  title="Copy as plain text">Text</button>
+          <button class="export-btn" onclick="exportResult('mathml')"
+                  title="Copy as MathML">MathML</button>
+        </div>
+      </div>
+
+      <div class="result-input-expr" id="result-input-expr"></div>
+      <div class="result-value" id="result-value"
+           aria-label="Result value"></div>
+      <div class="result-approx" id="result-approx"></div>
+      <div class="copy-toast" id="copy-toast" role="status" aria-live="polite"></div>
+    </div>
+
+    <div class="result-error hidden" id="result-error" role="alert">
+      <span class="error-label">Error</span>
+      <span id="error-message"></span>
+    </div>
+  </section>
+
+  <!-- History (shown when signed in) -->
+  <section class="history-section hidden" id="history-section"
+           aria-label="Calculation history">
+    <div class="history-header">
+      <h2 class="section-title">History</h2>
+      <button class="btn-ghost" onclick="clearHistory()"
+              aria-label="Clear all history">Clear all</button>
+    </div>
+    <ul class="history-list" id="history-list" role="list"></ul>
+  </section>
+
+</main>
+
+<!-- ── STATUS BAR ───────────────────────────────────────────── -->
+<footer class="status-bar" role="contentinfo">
+  <span class="status-dot" id="status-dot" aria-hidden="true">&#9679;</span>
+  <span class="status-text" id="status-text"
+        role="status" aria-live="polite">Connecting...</span>
+</footer>
+
+<script src="mobile.js" defer></script>
+</body>
+</html>
