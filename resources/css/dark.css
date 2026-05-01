@@ -1,0 +1,54 @@
+/* Dark Theme */
+.root {
+    -bg-base:     #141210;
+    -bg-surface:  #1e1b17;
+    -bg-raised:   #262218;
+    -bg-sunken:   #0f0e0c;
+
+    -brd-subtle:  #2e2a24;
+    -brd-default: #3d3830;
+    -brd-strong:  #5a5248;
+
+    -text-primary:   #f0ece4;
+    -text-secondary: #b0a898;
+    -text-tertiary:  #7a7268;
+
+    -accent-primary: #e8962e;
+    -accent-hover:   #f5a840;
+    -accent-subtle:  #2a1f0f;
+    -accent-glow:    rgba(232,150,46,0.30);
+
+    -focus-ring-color: rgba(232,150,46,0.65);
+    -shadow-color: rgba(0,0,0,0.40);
+
+    /* Graph canvas background */
+    -graph-bg:     #1a1714;
+
+    -success-color:  #34d399;
+    -success-bg:     rgba(52,211,153,0.10);
+    -warning-color:  #fbbf24;
+    -error-color:    #f87171;
+    -error-bg:       rgba(248,113,113,0.08);
+    -error-border:   rgba(248,113,113,0.25);
+
+    -op-arithmetic:    #fbbf24;   -op-arithmetic-bg:  rgba(251,191,36,0.12);
+    -op-integral:      #a78bfa;   -op-integral-bg:    rgba(167,139,250,0.12);
+    -op-derivative:    #38bdf8;   -op-derivative-bg:  rgba(56,189,248,0.12);
+    -op-limit:         #34d399;   -op-limit-bg:       rgba(52,211,153,0.12);
+    -op-matrix:        #fb7185;   -op-matrix-bg:      rgba(251,113,133,0.12);
+
+    /* Extended op-type colors */
+    -op-series:        #a78bfa;   -op-series-bg:      rgba(167,139,250,0.14);
+    -op-vector:        #22d3ee;   -op-vector-bg:      rgba(34,211,238,0.12);
+    -op-optimize:      #fbbf24;   -op-optimize-bg:    rgba(251,191,36,0.12);
+    -op-diffeq:        #34d399;   -op-diffeq-bg:      rgba(52,211,153,0.12);
+    -op-applied:       #6ee7b7;   -op-applied-bg:     rgba(110,231,183,0.10);
+    -op-statistics:    #f87171;   -op-statistics-bg:  rgba(248,113,113,0.12);
+    -op-probability:   #fb7185;   -op-probability-bg: rgba(251,113,133,0.12);
+    -op-nt:            #fbbf24;   -op-nt-bg:          rgba(251,191,36,0.12);
+    -op-discrete:      #60a5fa;   -op-discrete-bg:    rgba(96,165,250,0.12);
+    -op-algebra:       #c084fc;   -op-algebra-bg:     rgba(192,132,252,0.12);
+    -op-complex:       #38bdf8;   -op-complex-bg:     rgba(56,189,248,0.12);
+    -op-numerical:     #22d3ee;   -op-numerical-bg:   rgba(34,211,238,0.12);
+    -op-geometry:      #34d399;   -op-geometry-bg:    rgba(52,211,153,0.12);
+}

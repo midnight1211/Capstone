@@ -1,0 +1,74 @@
+/* High Contrast Theme — WCAG AAA */
+.root {
+    -bg-base:     #000000;
+    -bg-surface:  #000000;
+    -bg-raised:   #111111;
+    -bg-sunken:   #000000;
+
+    -brd-subtle:  #ffffff;
+    -brd-default: #ffffff;
+    -brd-strong:  #ffffff;
+
+    -text-primary:   #ffffff;
+    -text-secondary: #ffffff;
+    -text-tertiary:  #cccccc;
+
+    -accent-primary: #ffff00;
+    -accent-hover:   #ffee00;
+    -accent-subtle:  #2a2a00;
+    -accent-glow:    rgba(255,255,0,0.4);
+
+    -focus-ring-color: #ffff00;
+    -shadow-color: rgba(0,0,0,0);
+
+    /* Graph canvas background */
+    -graph-bg:     #000000;
+
+    -success-color:  #00ff00;
+    -success-bg:     rgba(0,255,0,0.10);
+    -warning-color:  #ffff00;
+    -error-color:    #ff4444;
+    -error-bg:       rgba(255,68,68,0.12);
+    -error-border:   #ff4444;
+
+    -op-arithmetic:    #ffff00;   -op-arithmetic-bg:  rgba(255,255,0,0.12);
+    -op-integral:      #00ffff;   -op-integral-bg:    rgba(0,255,255,0.12);
+    -op-derivative:    #00ff00;   -op-derivative-bg:  rgba(0,255,0,0.12);
+    -op-limit:         #ff69b4;   -op-limit-bg:       rgba(255,105,180,0.12);
+    -op-matrix:        #ffa500;   -op-matrix-bg:      rgba(255,165,0,0.12);
+}
+
+/* High contrast overrides for interactive states */
+.op-btn-active,
+.toolbar-btn-active,
+.precision-active {
+    -fx-background-color: #ffff00;
+    -fx-text-fill: #000000;
+    -fx-border-color: #ffff00;
+}
+
+.btn-solve {
+    -fx-background-color: #ffff00;
+    -fx-text-fill: #000000;
+}
+.btn-solve:hover { -fx-background-color: #eeee00; }
+
+.latex-field:focused {
+    -fx-border-color: #ffff00;
+    -fx-border-width: 3;
+
+    /* Extended op-type colors */
+    -op-series:        #ffff00;   -op-series-bg:      rgba(255,255,0,0.15);
+    -op-vector:        #00ffff;   -op-vector-bg:      rgba(0,255,255,0.15);
+    -op-optimize:      #ffff00;   -op-optimize-bg:    rgba(255,255,0,0.15);
+    -op-diffeq:        #00ff00;   -op-diffeq-bg:      rgba(0,255,0,0.15);
+    -op-applied:       #00ff00;   -op-applied-bg:     rgba(0,255,0,0.15);
+    -op-statistics:    #ff8080;   -op-statistics-bg:  rgba(255,128,128,0.15);
+    -op-probability:   #ff6080;   -op-probability-bg: rgba(255,96,128,0.15);
+    -op-nt:            #ffff00;   -op-nt-bg:          rgba(255,255,0,0.15);
+    -op-discrete:      #80d0ff;   -op-discrete-bg:    rgba(128,208,255,0.15);
+    -op-algebra:       #d080ff;   -op-algebra-bg:     rgba(208,128,255,0.15);
+    -op-complex:       #00ffff;   -op-complex-bg:     rgba(0,255,255,0.15);
+    -op-numerical:     #00ffff;   -op-numerical-bg:   rgba(0,255,255,0.15);
+    -op-geometry:      #00ff00;   -op-geometry-bg:    rgba(0,255,0,0.15);
+}

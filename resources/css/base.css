@@ -1,0 +1,1576 @@
+/* ============================================================
+   base.css — Structure and layout only.
+   Colors are in light.css / dark.css / high-contrast.css.
+   Font sizes are in font-normal.css / font-large.css / font-x-large.css.
+   ============================================================ */
+
+/* ── Fonts ──────────────────────────────────────────────────── */
+/* DM Serif Display for the logo, Outfit for body, JetBrains Mono for code */
+
+/* ── App shell ──────────────────────────────────────────────── */
+.main-layout {
+    -fx-background-color: -bg-base;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.app-header {
+    -fx-background-color: -bg-surface;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 0 0 1 0;
+    -fx-effect: dropshadow(gaussian, -shadow-color, 8, 0, 0, 2);
+}
+
+.logo {
+    -fx-alignment: center-left;
+}
+
+.logo-mark {
+    -fx-background-color: -accent-primary;
+    -fx-text-fill: white;
+    -fx-font-size: 1.2em;
+    -fx-min-width: 34px;
+    -fx-min-height: 34px;
+    -fx-max-width: 34px;
+    -fx-max-height: 34px;
+    -fx-alignment: center;
+    -fx-background-radius: 8;
+    -fx-font-family: "Georgia";
+    -fx-font-style: italic;
+}
+
+.logo-name {
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+}
+
+.logo-accent {
+    -fx-text-fill: -accent-primary;
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+}
+
+/* ── Accessibility Toolbar ──────────────────────────────────── */
+.accessibility-toolbar {
+    -fx-alignment: center-right;
+}
+
+.toolbar-group-label {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.7em;
+    -fx-font-weight: bold;
+}
+
+.toolbar-btn {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -text-secondary;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 4 10 4 10;
+    -fx-font-size: 0.78em;
+    -fx-cursor: hand;
+}
+
+.toolbar-btn:hover {
+    -fx-background-color: -accent-subtle;
+    -fx-text-fill: -accent-primary;
+    -fx-border-color: -accent-primary;
+}
+
+.toolbar-btn-active {
+    -fx-background-color: -accent-primary;
+    -fx-text-fill: white;
+    -fx-border-color: -accent-primary;
+}
+
+.toolbar-separator {
+    -fx-background-color: -brd-subtle;
+    -fx-min-width: 1px;
+    -fx-max-width: 1px;
+    -fx-min-height: 20px;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────── */
+.sidebar {
+    -fx-background-color: -bg-surface;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 0 1 0 0;
+    -fx-padding: 16;
+    -fx-pref-width: 220px;
+    -fx-min-width: 200px;
+}
+
+.sidebar-section {
+    -fx-padding: 0 0 16 0;
+    -fx-border-color: transparent transparent -brd-subtle transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.sidebar-section-title {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.68em;
+    -fx-font-weight: bold;
+}
+
+/* ── Operation buttons ──────────────────────────────────────── */
+.op-list {
+    -fx-spacing: 4;
+}
+
+.op-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-secondary;
+    -fx-border-color: transparent;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8 12 8 12;
+    -fx-alignment: center-left;
+    -fx-cursor: hand;
+    -fx-max-width: infinity;
+}
+
+.op-btn:hover {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -text-primary;
+}
+
+.op-btn-active {
+    -fx-background-color: -accent-subtle;
+    -fx-text-fill: -accent-primary;
+    -fx-border-color: -accent-primary;
+    -fx-font-weight: bold;
+}
+
+.op-icon {
+    -fx-min-width: 28px;
+    -fx-max-width: 28px;
+    -fx-min-height: 24px;
+    -fx-alignment: center;
+    -fx-background-radius: 5;
+    -fx-padding: 2 4 2 4;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 0.78em;
+    -fx-font-weight: bold;
+}
+
+.arithmetic-icon  { -fx-background-color: -op-arithmetic-bg;  -fx-text-fill: -op-arithmetic;  }
+.integral-icon    { -fx-background-color: -op-integral-bg;     -fx-text-fill: -op-integral;    }
+.derivative-icon  { -fx-background-color: -op-derivative-bg;   -fx-text-fill: -op-derivative;  }
+.limit-icon       { -fx-background-color: -op-limit-bg;        -fx-text-fill: -op-limit;       }
+.matrix-icon      { -fx-background-color: -op-matrix-bg;       -fx-text-fill: -op-matrix;      }
+
+/* ── Extended operation icons — all 18 operations ─────────────── */
+.series-icon      { -fx-background-color: -op-series-bg;       -fx-text-fill: -op-series;      }
+.vector-icon      { -fx-background-color: -op-vector-bg;       -fx-text-fill: -op-vector;      }
+.optimize-icon    { -fx-background-color: -op-optimize-bg;     -fx-text-fill: -op-optimize;    }
+.diffeq-icon      { -fx-background-color: -op-diffeq-bg;       -fx-text-fill: -op-diffeq;      }
+.applied-icon     { -fx-background-color: -op-applied-bg;      -fx-text-fill: -op-applied;     }
+.statistics-icon  { -fx-background-color: -op-statistics-bg;   -fx-text-fill: -op-statistics;  }
+.prob-icon        { -fx-background-color: -op-probability-bg;  -fx-text-fill: -op-probability; }
+.nt-icon          { -fx-background-color: -op-nt-bg;           -fx-text-fill: -op-nt;          }
+.dm-icon          { -fx-background-color: -op-discrete-bg;     -fx-text-fill: -op-discrete;    }
+.aa-icon          { -fx-background-color: -op-algebra-bg;      -fx-text-fill: -op-algebra;     }
+.ca-icon          { -fx-background-color: -op-complex-bg;      -fx-text-fill: -op-complex;     }
+.na-icon          { -fx-background-color: -op-numerical-bg;    -fx-text-fill: -op-numerical;   }
+.geo-icon         { -fx-background-color: -op-geometry-bg;     -fx-text-fill: -op-geometry;    }
+
+.op-label {
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 0.88em;
+    -fx-font-weight: 500;
+}
+
+/* ── History ─────────────────────────────────────────────────── */
+.history-clear-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-tertiary;
+    -fx-border-color: transparent;
+    -fx-font-size: 0.72em;
+    -fx-padding: 2 6 2 6;
+    -fx-cursor: hand;
+}
+.history-clear-btn:hover { -fx-text-fill: -error-color; }
+
+.history-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.history-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.history-item {
+    -fx-background-color: -bg-raised;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6 8 6 8;
+    -fx-cursor: hand;
+}
+.history-item:hover {
+    -fx-border-color: -accent-primary;
+    -fx-background-color: -accent-subtle;
+}
+
+.history-expr {
+    -fx-text-fill: -text-primary;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 0.78em;
+}
+
+.history-meta {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.68em;
+}
+
+.history-empty {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.78em;
+    -fx-font-style: italic;
+    -fx-padding: 4;
+}
+
+/* ── Input Card ─────────────────────────────────────────────── */
+.input-card {
+    -fx-background-color: -bg-surface;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-effect: dropshadow(gaussian, -shadow-color, 12, 0, 0, 3);
+}
+
+.input-card-header {
+    -fx-background-color: -bg-raised;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-radius: 14 14 0 0;
+    -fx-padding: 10 16 10 16;
+}
+
+/* ── Op badge (in input card header) ────────────────────────── */
+.op-badge {
+    -fx-padding: 3 10 3 10;
+    -fx-border-radius: 999;
+    -fx-background-radius: 999;
+    -fx-font-size: 0.72em;
+    -fx-font-weight: bold;
+}
+
+.badge-arithmetic  { -fx-background-color: -op-arithmetic-bg;  -fx-text-fill: -op-arithmetic;  -fx-border-color: -op-arithmetic;  -fx-border-width: 1; }
+.badge-integral    { -fx-background-color: -op-integral-bg;     -fx-text-fill: -op-integral;    -fx-border-color: -op-integral;    -fx-border-width: 1; }
+.badge-derivative  { -fx-background-color: -op-derivative-bg;   -fx-text-fill: -op-derivative;  -fx-border-color: -op-derivative;  -fx-border-width: 1; }
+.badge-limit       { -fx-background-color: -op-limit-bg;        -fx-text-fill: -op-limit;       -fx-border-color: -op-limit;       -fx-border-width: 1; }
+.badge-matrix      { -fx-background-color: -op-matrix-bg;       -fx-text-fill: -op-matrix;      -fx-border-color: -op-matrix;      -fx-border-width: 1; }
+
+/* ── Precision toggle ────────────────────────────────────────── */
+.precision-label {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 0.82em;
+}
+
+.precision-btn {
+    -fx-background-color: -bg-sunken;
+    -fx-text-fill: -text-tertiary;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 999;
+    -fx-background-radius: 999;
+    -fx-padding: 5 16 5 16;
+    -fx-font-size: 0.82em;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+}
+.precision-btn:hover {
+    -fx-text-fill: -text-primary;
+}
+.precision-active {
+    -fx-background-color: -accent-primary;
+    -fx-text-fill: white;
+    -fx-border-color: -accent-primary;
+}
+
+/* ── LaTeX input row ─────────────────────────────────────────── */
+.latex-row {
+    -fx-padding: 12 16 8 16;
+}
+
+.latex-sigil {
+    -fx-text-fill: -accent-primary;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 1.1em;
+    -fx-font-weight: bold;
+    -fx-padding: 0 4 0 4;
+}
+
+.latex-field {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -text-primary;
+    -fx-prompt-text-fill: -text-tertiary;
+    -fx-border-color: -brd-default;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10 14 10 14;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 1em;
+    -fx-highlight-fill: -accent-subtle;
+}
+.latex-field:focused {
+    -fx-border-color: -accent-primary;
+    -fx-background-color: -bg-surface;
+    -fx-effect: dropshadow(gaussian, -accent-glow, 8, 0, 0, 0);
+}
+
+/* ── Preview ─────────────────────────────────────────────────── */
+.preview-container {
+    -fx-padding: 4 16 10 16;
+    -fx-border-color: transparent transparent -brd-subtle transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.preview-label {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.68em;
+    -fx-font-weight: bold;
+}
+
+.preview-scroll {
+    -fx-background-color: -bg-sunken;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 4;
+}
+.preview-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.preview-placeholder {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-style: italic;
+    -fx-font-size: 0.82em;
+    -fx-padding: 8;
+}
+
+.preview-raw {
+    -fx-text-fill: -text-secondary;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 0.88em;
+    -fx-padding: 4;
+}
+
+/* ── Action bar ──────────────────────────────────────────────── */
+.action-bar {
+    -fx-background-color: -bg-raised;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1 0 0 0;
+    -fx-background-radius: 0 0 14 14;
+    -fx-padding: 10 16 10 16;
+}
+
+.btn-clear {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-secondary;
+    -fx-border-color: -brd-default;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8 20 8 20;
+    -fx-font-size: 0.88em;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+}
+.btn-clear:hover {
+    -fx-border-color: -error-color;
+    -fx-text-fill: -error-color;
+}
+
+.btn-solve {
+    -fx-background-color: -accent-primary;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8 28 8 28;
+    -fx-font-size: 0.88em;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, -accent-glow, 10, 0, 0, 2);
+}
+.btn-solve:hover {
+    -fx-background-color: -accent-hover;
+}
+.btn-solve:disabled {
+    -fx-opacity: 0.5;
+}
+
+/* ── Output Card ─────────────────────────────────────────────── */
+.output-card {
+    -fx-background-color: -bg-surface;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-effect: dropshadow(gaussian, -shadow-color, 8, 0, 0, 2);
+}
+
+.output-card-header {
+    -fx-background-color: -bg-raised;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-radius: 14 14 0 0;
+    -fx-padding: 10 16 10 16;
+}
+
+.output-title {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.68em;
+    -fx-font-weight: bold;
+}
+
+.output-status-badge {
+    -fx-padding: 3 10 3 10;
+    -fx-border-radius: 999;
+    -fx-background-radius: 999;
+    -fx-font-size: 0.72em;
+    -fx-font-weight: bold;
+}
+
+.badge-success {
+    -fx-background-color: -success-bg;
+    -fx-text-fill: -success-color;
+    -fx-border-color: -success-color;
+    -fx-border-width: 1;
+}
+
+.badge-error {
+    -fx-background-color: -error-bg;
+    -fx-text-fill: -error-color;
+    -fx-border-color: -error-color;
+    -fx-border-width: 1;
+}
+
+.output-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.output-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ── Result rows ─────────────────────────────────────────────── */
+.result-row {
+    -fx-padding: 0 0 12 0;
+    -fx-border-color: transparent transparent -brd-subtle transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.result-row-label {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.68em;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 4 0;
+}
+
+.result-equals {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 1.5em;
+    -fx-font-family: "Georgia";
+    -fx-font-style: italic;
+}
+
+.result-raw {
+    -fx-text-fill: -accent-primary;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 1.3em;
+    -fx-font-weight: bold;
+}
+
+.result-value {
+    -fx-text-fill: -accent-primary;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 1.3em;
+    -fx-font-weight: bold;
+}
+
+.result-approx-row {
+    -fx-padding: 4 0 0 0;
+}
+
+.result-approx-sign {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 1.1em;
+}
+
+.result-approx-value {
+    -fx-text-fill: -text-secondary;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 0.95em;
+    -fx-background-color: -bg-raised;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 3 10 3 10;
+}
+
+/* ── Error box ───────────────────────────────────────────────── */
+.error-box {
+    -fx-background-color: -error-bg;
+    -fx-border-color: -error-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.error-title {
+    -fx-text-fill: -error-color;
+    -fx-font-weight: bold;
+    -fx-font-size: 0.95em;
+}
+
+.error-message {
+    -fx-text-fill: -error-color;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 0.85em;
+}
+
+.error-hint {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.78em;
+}
+
+/* ── Empty state ─────────────────────────────────────────────── */
+.empty-icon {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 2.5em;
+    -fx-opacity: 0.4;
+}
+
+.empty-message {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-style: italic;
+    -fx-font-size: 0.85em;
+    -fx-alignment: center;
+}
+
+/* ── Status bar ──────────────────────────────────────────────── */
+.status-bar {
+    -fx-background-color: -bg-surface;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 5 20 5 20;
+}
+
+.status-dot {
+    -fx-font-size: 0.6em;
+}
+
+.dot-ok       { -fx-text-fill: -success-color; }
+.dot-error    { -fx-text-fill: -error-color;   }
+.dot-warn     { -fx-text-fill: -warning-color; }
+.dot-neutral  { -fx-text-fill: -text-tertiary; }
+
+.status-text {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.78em;
+}
+
+.status-version {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 0.72em;
+}
+
+/* ── Focus rings (ADA) ───────────────────────────────────────── */
+.button:focused,
+.text-field:focused,
+.toggle-button:focused {
+    -fx-effect: dropshadow(gaussian, -focus-ring-color, 0, 0, 0, 0),
+                innershadow(gaussian, -focus-ring-color, 3, 0.5, 0, 0);
+}
+
+/* ── Operation groups (OperationPanel) ──────────────────────────────── */
+
+.op-scroll {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.op-groups {
+    -fx-spacing: 2;
+}
+
+.op-group {
+    -fx-background-color: transparent;
+}
+
+.group-header {
+    -fx-background-color: -bg-raised;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.group-header:hover {
+    -fx-background-color: -bg-sunken;
+}
+
+.group-header-label {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 0.72em;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 0.04em;
+}
+
+.group-chevron {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.75em;
+    -fx-min-width: 14;
+}
+
+/* ── Math Keyboard popup ────────────────────────────────────────────── */
+
+.math-keyboard {
+    -fx-background-color: -bg-surface;
+    -fx-border-color: -brd-default;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, -shadow-color, 18, 0.1, 0, 4);
+    -fx-min-width: 480;
+    -fx-max-width: 520;
+}
+
+.math-keyboard-tabs {
+    -fx-background-color: transparent;
+    -fx-tab-min-height: 32;
+    -fx-tab-max-height: 32;
+}
+
+.math-keyboard-tabs .tab {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 0.78em;
+    -fx-padding: 4 10 4 10;
+    -fx-cursor: hand;
+}
+
+.math-keyboard-tabs .tab .label,
+.math-keyboard-tabs .tab .tab-label {
+    -fx-text-fill: -text-secondary;
+}
+
+.math-keyboard-tabs .tab:selected .label,
+.math-keyboard-tabs .tab:selected .tab-label {
+    -fx-text-fill: -accent-primary;
+}
+
+.math-keyboard-tabs .tab:hover .label,
+.math-keyboard-tabs .tab:hover .tab-label {
+    -fx-text-fill: -text-primary;
+}
+
+.math-keyboard-tabs > .tab-header-area,
+.math-keyboard-tabs > .tab-header-area > .tab-header-background {
+    -fx-background-color: -bg-raised;
+}
+
+.math-keyboard-tabs .tab:selected {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -accent-primary;
+}
+
+.math-keyboard-tabs .tab-header-area {
+    -fx-background-color: -bg-base;
+    -fx-border-color: transparent transparent -brd-subtle transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.kb-grid {
+    -fx-background-color: transparent;
+    -fx-spacing: 4;
+}
+
+.kb-tab-scroll {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-min-height: 208;
+    -fx-max-height: 208;
+}
+
+.kb-key {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -text-primary;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-font-size: 0.85em;
+    -fx-cursor: hand;
+    -fx-padding: 4 6 4 6;
+    -fx-min-width: 50;
+    -fx-pref-height: 36;
+}
+
+.kb-key:hover {
+    -fx-background-color: -accent-subtle;
+    -fx-border-color: -accent-primary;
+    -fx-text-fill: -accent-primary;
+}
+
+.kb-key:pressed {
+    -fx-background-color: -accent-primary;
+    -fx-text-fill: white;
+    -fx-border-color: -accent-primary;
+}
+
+.kb-bottom-bar {
+    -fx-background-color: -bg-base;
+    -fx-border-color: -brd-subtle transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.kb-backspace {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -text-secondary;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-font-size: 0.8em;
+    -fx-cursor: hand;
+    -fx-padding: 4 12 4 12;
+}
+
+.kb-backspace:hover {
+    -fx-background-color: -error-bg;
+    -fx-border-color: -error-color;
+    -fx-text-fill: -error-color;
+}
+
+.kb-close {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.78em;
+    -fx-cursor: hand;
+    -fx-padding: 4 10 4 10;
+    -fx-border-color: transparent;
+}
+
+.kb-close:hover {
+    -fx-text-fill: -text-primary;
+}
+
+/* Keyboard toggle button in InputPanel action bar */
+.btn-keyboard {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -text-secondary;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 1.0em;
+    -fx-cursor: hand;
+    -fx-padding: 6 10 6 10;
+    -fx-min-width: 38;
+}
+
+.btn-keyboard:hover {
+    -fx-background-color: -accent-subtle;
+    -fx-border-color: -accent-primary;
+    -fx-text-fill: -accent-primary;
+}
+
+/* ── Settings popup ─────────────────────────────────────────────── */
+
+.settings-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 1.1em;
+    -fx-cursor: hand;
+    -fx-padding: 4 10 4 10;
+    -fx-border-color: transparent;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+.settings-btn:hover {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -accent-primary;
+}
+
+.settings-popup {
+    -fx-background-color: -bg-surface;
+    -fx-border-color: -brd-default;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, -shadow-color, 20, 0.12, 0, 4);
+}
+.settings-header {
+    -fx-background-color: transparent;
+}
+.settings-title {
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 1.0em;
+    -fx-font-weight: bold;
+}
+.settings-section-label {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.7em;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 0.06em;
+    -fx-padding: 0 0 0 16;
+}
+.settings-theme-btn {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -text-secondary;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-font-size: 0.8em;
+    -fx-padding: 5 8 5 8;
+}
+.settings-theme-btn:hover {
+    -fx-background-color: -accent-subtle;
+    -fx-border-color: -accent-primary;
+    -fx-text-fill: -accent-primary;
+}
+.settings-theme-btn-active {
+    -fx-background-color: -accent-primary;
+    -fx-text-fill: white;
+    -fx-border-color: -accent-primary;
+}
+.settings-font-btn {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -text-secondary;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-font-size: 0.85em;
+    -fx-padding: 5 14 5 14;
+}
+.settings-font-btn:hover {
+    -fx-background-color: -accent-subtle;
+    -fx-border-color: -accent-primary;
+    -fx-text-fill: -accent-primary;
+}
+.settings-font-btn-active {
+    -fx-background-color: -accent-primary;
+    -fx-text-fill: white;
+    -fx-border-color: -accent-primary;
+}
+.settings-version {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.72em;
+}
+.settings-version-row {
+    -fx-background-color: -bg-base;
+    -fx-background-radius: 0 0 10 10;
+}
+
+/* ── Logo letter mark ────────────────────────────────────────────── */
+
+.logo-mark-letter {
+    -fx-font-family: "Georgia";
+    -fx-font-style: italic;
+    -fx-font-size: 1.3em;
+    -fx-font-weight: bold;
+}
+
+/* ── Result pre-formatted text ───────────────────────────────────── */
+
+.result-preformatted {
+    -fx-text-fill: -text-primary;
+    -fx-font-family: "JetBrains Mono", "Consolas", monospace;
+    -fx-font-size: 0.88em;
+    -fx-background-color: -bg-raised;
+    -fx-background-radius: 6;
+    -fx-padding: 10 14 10 14;
+    -fx-wrap-text: true;
+}
+
+/* ── Steps panel ─────────────────────────────────────────────────── */
+
+.steps-panel {
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-color: -bg-base;
+    -fx-background-radius: 8;
+    -fx-padding: 0;
+}
+
+.steps-header {
+    -fx-text-fill: -accent-primary;
+    -fx-font-size: 0.82em;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 8 14 8 14;
+    -fx-background-color: transparent;
+}
+.steps-header:hover {
+    -fx-text-fill: -accent-hover;
+}
+
+.steps-body {
+    -fx-border-color: -brd-subtle transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.steps-content {
+    -fx-text-fill: -text-secondary;
+    -fx-font-family: "JetBrains Mono", "Consolas", monospace;
+    -fx-font-size: 0.83em;
+    -fx-wrap-text: true;
+}
+
+/* ── Sidebar fix: no white patch at bottom ───────────────────────── */
+
+.sidebar {
+    -fx-background-color: -bg-surface;
+}
+
+.op-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.op-scroll > .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+/* ── Main tab pane ───────────────────────────────────────────────── */
+
+.main-tabs {
+    -fx-background-color: transparent;
+    -fx-tab-min-height: 36;
+    -fx-tab-max-height: 36;
+}
+
+.main-tabs .tab-header-area {
+    -fx-background-color: -bg-surface;
+    -fx-padding: 0 16 0 0;
+    -fx-border-color: transparent transparent -brd-subtle transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.main-tabs .tab-header-background {
+    -fx-background-color: -bg-surface;
+}
+
+.main-tabs .tab {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 0.9em;
+    -fx-padding: 8 20 8 20;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+}
+
+/* JavaFX routes tab text through an inner Label — must style it explicitly.
+   Without this, tabs stay platform-default gray regardless of theme. */
+/* JavaFX Modena routes tab text through .tab-label on Windows.
+   Set BOTH .label and .tab-label to cover all platform/version combinations. */
+.main-tabs .tab .label,
+.main-tabs .tab .tab-label {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 0.9em;
+}
+
+.main-tabs .tab:selected {
+    -fx-background-color: transparent;
+    -fx-text-fill: -accent-primary;
+    -fx-border-color: transparent transparent -accent-primary transparent;
+    -fx-border-width: 0 0 2 0;
+}
+
+.main-tabs .tab:selected .label,
+.main-tabs .tab:selected .tab-label {
+    -fx-text-fill: -accent-primary;
+}
+
+.main-tabs .tab:hover .label,
+.main-tabs .tab:hover .tab-label {
+    -fx-text-fill: -text-primary;
+}
+
+/* Kill the Modena focus ring which overrides background with platform gray */
+.main-tabs .tab:focused {
+    -fx-background-color: transparent;
+}
+
+/* Tab close button — hide (no closeable tabs) */
+.main-tabs .tab .tab-close-button {
+    -fx-background-color: -text-tertiary;
+    -fx-scale-x: 0.7;
+    -fx-scale-y: 0.7;
+    visibility: hidden;
+}
+
+/* Make the entire tab header bar use the theme surface colour.
+   Without this, Modena paints it with a hard-coded system grey that
+   ignores our CSS variable entirely. */
+.main-tabs > .tab-header-area,
+.main-tabs > .tab-header-area > .tab-header-background {
+    -fx-background-color: -bg-surface !important;
+    -fx-border-color: transparent transparent -brd-subtle transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* The control buttons region (dropdown arrow for overflow) */
+.main-tabs > .tab-header-area > .control-buttons-tab {
+    -fx-background-color: -bg-surface;
+}
+
+/* Tab content area — matches bg-base so content sits flush */
+.main-tabs > .tab-content-area {
+    -fx-background-color: -bg-base;
+    -fx-padding: 0;
+}
+
+.main-tabs .tab-content-area {
+    -fx-background-color: -bg-base;
+}
+
+/* ── Graph panel ─────────────────────────────────────────────────── */
+
+.graph-panel {
+    -fx-background-color: -bg-base;
+}
+
+.graph-toolbar {
+    -fx-background-color: -bg-surface;
+    -fx-border-color: transparent transparent -brd-subtle transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 6 12 6 12;
+}
+
+.graph-expr-input {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -text-primary;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 5 10 5 10;
+    -fx-prompt-text-fill: -text-tertiary;
+    -fx-font-family: "JetBrains Mono", "Consolas", monospace;
+    -fx-font-size: 0.85em;
+}
+
+.graph-expr-input:focused {
+    -fx-border-color: -accent-primary;
+}
+
+.graph-range-label {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 0.8em;
+}
+
+.graph-range-input {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -text-primary;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 4 6 4 6;
+    -fx-font-size: 0.8em;
+    -fx-pref-width: 56;
+    -fx-font-family: "JetBrains Mono", "Consolas", monospace;
+}
+
+.graph-range-input:focused {
+    -fx-border-color: -accent-primary;
+}
+
+.graph-canvas-pane {
+    -fx-background-color: -graph-bg;
+}
+
+.graph-legend {
+    -fx-background-color: -bg-surface;
+    -fx-border-color: transparent transparent transparent -brd-subtle;
+    -fx-border-width: 0 0 0 1;
+    -fx-min-width: 140;
+    -fx-max-width: 160;
+}
+
+.graph-legend-title {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.68em;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 0.06em;
+    -fx-padding: 0 0 6 0;
+}
+
+.graph-legend-entry {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 0.8em;
+    -fx-font-family: "JetBrains Mono", "Consolas", monospace;
+}
+
+.graph-legend-delete {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-tertiary;
+    -fx-border-color: transparent;
+    -fx-font-size: 0.8em;
+    -fx-cursor: hand;
+    -fx-padding: 0 4 0 4;
+}
+
+.graph-legend-delete:hover {
+    -fx-text-fill: -error-color;
+}
+
+.graph-status-bar {
+    -fx-background-color: -bg-surface;
+    -fx-border-color: -brd-subtle transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 4 12 4 12;
+}
+
+.graph-status {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.78em;
+    -fx-font-family: "JetBrains Mono", "Consolas", monospace;
+}
+
+/* ── Result multi-line stack ─────────────────────────────────────── */
+
+.result-multiline {
+    -fx-spacing: 4;
+}
+
+/* ── Sidebar / ScrollPane transparency fix ───────────────────────── */
+
+.sidebar > .scroll-pane {
+    -fx-background-color: transparent;
+}
+.sidebar > .scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.history-scroll {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+.history-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ── Output scroll ───────────────────────────────────────────────── */
+
+.output-scroll {
+    -fx-background-color: -bg-surface;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+.output-scroll > .viewport {
+    -fx-background-color: -bg-surface;
+}
+
+/* ── Preview scroll ──────────────────────────────────────────────── */
+
+.preview-scroll > .viewport {
+    -fx-background-color: -bg-raised;
+}
+
+/* ── Icon button (graph toolbar) ────────────────────────────────── */
+
+.icon-btn {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -text-secondary;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-padding: 4 10 4 10;
+    -fx-font-size: 0.85em;
+    -fx-min-width: 32;
+}
+.icon-btn:hover {
+    -fx-background-color: -accent-subtle;
+    -fx-border-color: -accent-primary;
+    -fx-text-fill: -accent-primary;
+}
+.icon-btn:selected {
+    -fx-background-color: -accent-primary;
+    -fx-text-fill: white;
+    -fx-border-color: -accent-primary;
+}
+
+/* ── Quick Functions Panel ───────────────────────────────────────── */
+
+.quick-panel {
+    -fx-background-color: -bg-base;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 0;
+}
+
+.quick-panel-header {
+    -fx-background-color: -bg-raised;
+    -fx-border-color: transparent transparent -brd-subtle transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 6 14 6 14;
+    -fx-cursor: hand;
+}
+
+.quick-panel-title {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.7em;
+    -fx-font-weight: bold;
+}
+
+.quick-panel-chevron {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.7em;
+}
+
+.quick-btn {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -text-secondary;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-font-size: 0.77em;
+    -fx-font-family: "JetBrains Mono", "Consolas", monospace;
+    -fx-padding: 3 8 3 8;
+    -fx-cursor: hand;
+    -fx-wrap-text: true;
+}
+
+.quick-btn:hover {
+    -fx-background-color: -accent-subtle;
+    -fx-border-color: -accent-primary;
+    -fx-text-fill: -accent-primary;
+}
+
+.quick-btn:pressed {
+    -fx-background-color: -accent-primary;
+    -fx-text-fill: white;
+}
+
+.quick-btn-grid {
+    -fx-padding: 8 10 8 10;
+    -fx-hgap: 5;
+    -fx-vgap: 5;
+}
+
+/* ── Login / Auth Screen ─────────────────────────────────────────── */
+
+.auth-root {
+    -fx-background-color: -bg-base;
+}
+
+.auth-card {
+    -fx-background-color: -bg-surface;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 16;
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(gaussian, -shadow-color, 24, 0.10, 0, 6);
+    -fx-padding: 40 44 40 44;
+    -fx-min-width: 380;
+    -fx-max-width: 420;
+}
+
+.auth-logo-mark {
+    -fx-background-color: -accent-primary;
+    -fx-text-fill: white;
+    -fx-font-family: "Georgia";
+    -fx-font-style: italic;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.5em;
+    -fx-min-width: 48;
+    -fx-min-height: 48;
+    -fx-max-width: 48;
+    -fx-max-height: 48;
+    -fx-alignment: center;
+    -fx-background-radius: 12;
+}
+
+.auth-app-name {
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 1.4em;
+    -fx-font-weight: bold;
+}
+
+.auth-app-tagline {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.82em;
+}
+
+.auth-tab-bar {
+    -fx-background-color: -bg-sunken;
+    -fx-background-radius: 8;
+    -fx-padding: 3;
+    -fx-spacing: 2;
+}
+
+.auth-tab-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-secondary;
+    -fx-border-color: transparent;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 0.88em;
+    -fx-font-weight: 600;
+    -fx-padding: 6 20 6 20;
+    -fx-cursor: hand;
+}
+
+.auth-tab-btn-active {
+    -fx-background-color: -bg-surface;
+    -fx-text-fill: -text-primary;
+    -fx-effect: dropshadow(gaussian, -shadow-color, 4, 0.05, 0, 1);
+}
+
+.auth-field-label {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 0.82em;
+    -fx-font-weight: 600;
+    -fx-padding: 0 0 4 0;
+}
+
+.auth-field {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -text-primary;
+    -fx-border-color: -brd-default;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10 14 10 14;
+    -fx-font-size: 0.9em;
+    -fx-prompt-text-fill: -text-tertiary;
+    -fx-pref-width: 999;
+}
+
+.auth-field:focused {
+    -fx-border-color: -accent-primary;
+    -fx-background-color: -bg-surface;
+    -fx-effect: dropshadow(gaussian, -focus-ring-color, 6, 0.15, 0, 0);
+}
+
+.auth-submit-btn {
+    -fx-background-color: -accent-primary;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-size: 0.95em;
+    -fx-font-weight: bold;
+    -fx-padding: 11 0 11 0;
+    -fx-pref-width: 999;
+    -fx-cursor: hand;
+}
+
+.auth-submit-btn:hover {
+    -fx-background-color: -accent-hover;
+}
+
+.auth-submit-btn:pressed {
+    -fx-opacity: 0.85;
+}
+
+.auth-guest-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-tertiary;
+    -fx-border-color: transparent;
+    -fx-font-size: 0.82em;
+    -fx-cursor: hand;
+    -fx-padding: 6 0 0 0;
+}
+
+.auth-guest-btn:hover {
+    -fx-text-fill: -text-primary;
+}
+
+.auth-error {
+    -fx-background-color: -error-bg;
+    -fx-border-color: -error-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: -error-color;
+    -fx-font-size: 0.82em;
+    -fx-padding: 8 12 8 12;
+    -fx-wrap-text: true;
+}
+
+.auth-success {
+    -fx-text-fill: -success-color;
+    -fx-font-size: 0.82em;
+    -fx-padding: 6 0 0 0;
+}
+
+.auth-divider-label {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.75em;
+    -fx-padding: 0 8 0 8;
+}
+
+/* ── Header user identity & logout ──────────────────────────────── */
+
+.header-user-label {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 0.82em;
+    -fx-padding: 0 4 0 0;
+}
+
+.header-logout-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-tertiary;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 0.78em;
+    -fx-padding: 3 10 3 10;
+    -fx-cursor: hand;
+}
+
+.header-logout-btn:hover {
+    -fx-border-color: -error-color;
+    -fx-text-fill: -error-color;
+    -fx-background-color: -error-bg;
+}
+
+/* ── Dataset Import Panel ────────────────────────────────────────── */
+
+.dataset-import-panel {
+    -fx-background-color: -bg-base;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1 0 0 0;
+}
+
+.dataset-source-btn {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -text-secondary;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 0.82em;
+    -fx-padding: 5 12 5 12;
+    -fx-cursor: hand;
+}
+
+.dataset-source-btn:hover {
+    -fx-background-color: -accent-subtle;
+    -fx-border-color: -accent-primary;
+    -fx-text-fill: -accent-primary;
+}
+
+.dataset-status {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.78em;
+    -fx-font-style: italic;
+}
+
+.dataset-col-selector {
+    -fx-background-color: -bg-raised;
+    -fx-border-color: -brd-default;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 0.82em;
+}
+
+.dataset-col-selector .list-cell {
+    -fx-text-fill: -text-primary;
+    -fx-background-color: -bg-surface;
+}
+
+.dataset-col-selector:showing {
+    -fx-border-color: -accent-primary;
+}
+
+/* ── Graph panel extra theming ──────────────────────────────────── */
+
+.graph-status-label {
+    -fx-text-fill: -text-tertiary;
+    -fx-font-size: 0.75em;
+}
+
+.graph-range-input {
+    -fx-background-color: -bg-raised;
+    -fx-text-fill: -text-primary;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-pref-width: 52;
+    -fx-font-size: 0.8em;
+    -fx-prompt-text-fill: -text-tertiary;
+}
+
+.graph-range-input:focused {
+    -fx-border-color: -accent-primary;
+}
+
+.graph-canvas-pane {
+    -fx-background-color: -graph-bg;
+}
+
+/* ── Output panel result styles ──────────────────────────────────── */
+
+.result-preformatted-block {
+    -fx-background-color: -bg-sunken;
+    -fx-border-color: -brd-subtle;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.result-preformatted {
+    -fx-font-family: "JetBrains Mono", "Consolas", "Courier New", monospace;
+    -fx-font-size: 0.82em;
+    -fx-text-fill: -text-primary;
+    -fx-wrap-text: true;
+}
+
+.result-section-header {
+    -fx-font-family: "JetBrains Mono", "Consolas", "Courier New", monospace;
+    -fx-font-size: 0.82em;
+    -fx-text-fill: -text-secondary;
+    -fx-font-weight: bold;
+    -fx-wrap-text: true;
+    -fx-padding: 4 0 2 0;
+}
+
+.result-approx-value {
+    -fx-font-family: "JetBrains Mono", "Consolas", monospace;
+    -fx-font-size: 0.92em;
+    -fx-text-fill: -text-secondary;
+}
+
+.steps-section-header {
+    -fx-font-family: "JetBrains Mono", "Consolas", monospace;
+    -fx-font-size: 0.82em;
+    -fx-text-fill: -accent-primary;
+    -fx-font-weight: bold;
+    -fx-padding: 6 0 2 0;
+}
+
+/* Ensure result-value label is large and readable */
+.result-value {
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 1.05em;
+    -fx-wrap-text: true;
+}
